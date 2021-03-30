@@ -1,9 +1,8 @@
 import express from "express";
 import apiRouter from "./endpoints";
-// import { connectToDatabase } from "./connectToDatabase";
 import cors from "cors";
 import dotenv from "dotenv";
-import { connect } from "database";
+import { connectToDb } from "database";
 
 dotenv.config();
 const { NODE_ENV, PORT, MONGO_PORT, MONGO_TABLE } = process.env;
@@ -23,7 +22,7 @@ const startServer = async (): Promise<void> => {
     }
 
     try {
-      await connect(MONGO_PORT, MONGO_TABLE);
+      await connectToDb(MONGO_PORT, MONGO_TABLE);
     } catch (error) {
       throw new Error("Could not connect to db");
     }

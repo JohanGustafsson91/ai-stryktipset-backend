@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const connect = async (
+export const connectToDb = async (
   port: string,
   table: string,
   config = {
