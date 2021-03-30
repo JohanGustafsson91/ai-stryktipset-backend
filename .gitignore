@@ -1,0 +1,7 @@
+node_modules
+build
+coverage
+yarn-error.log
+
+.env.local
+.env.*.local
