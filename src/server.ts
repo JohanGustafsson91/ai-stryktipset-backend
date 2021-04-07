@@ -3,6 +3,7 @@ import apiRouter from "./endpoints";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectToDb } from "database";
+import { validation } from "middlewares/validation";
 
 dotenv.config();
 const { NODE_ENV, PORT, MONGO_PORT, MONGO_TABLE } = process.env;
@@ -16,6 +17,7 @@ const startServer = async (): Promise<void> => {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use("/", apiRouter);
+    app.use(validation);
 
     if (!MONGO_PORT || !MONGO_TABLE) {
       throw Error("Invalid env settings");

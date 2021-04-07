@@ -1,10 +1,10 @@
 import { Router } from "express";
-import stryktipsetRouter from "./stryktipset";
-import netRouter from "./net";
+import stryktipsetRouter from "./stryktips";
+import netRouter from "./nets";
 
 const apiRouter = Router();
 
-apiRouter.use("/stryktipset", stryktipsetRouter);
-apiRouter.use("/net", netRouter);
+apiRouter.use("/stryktips", stryktipsetRouter);
+apiRouter.use("/nets", netRouter);
 
 export default apiRouter;
